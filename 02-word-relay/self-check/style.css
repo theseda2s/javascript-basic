@@ -36,10 +36,9 @@ h1 {
 }
 
 .container {
+  width: 400px;
   background-color: #fff;
   padding: 40px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
 }
 
 strong {
@@ -69,7 +68,8 @@ input:focus {
 }
 
 button {
-  padding: 10px 15px;
+  width: 70px;
+  height: 48px;
   border-radius: 5px;
   border: none;
   color: #fff;
