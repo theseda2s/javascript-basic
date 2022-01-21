@@ -1,6 +1,7 @@
 const $input = document.querySelector('#input');
 const $form = document.querySelector('#form');
 const $logs = document.querySelector('#logs');
+const $count = document.querySelector('#count');
 
 const numbers = [];
 for (let n = 0; n < 9; n++) {
@@ -26,12 +27,16 @@ function checkInput(input) {
   if (tries.includes(input)) {
     return alert('이미 시도한 값입니다.');
   }
+  if (input.includes(0)) {
+    return alert('0을 제외한 숫자를 입력하세요!');
+  }
   return true;
 } // check Input
 
 function defeated() {
   const message = document.createTextNode(`You Lost! The answer is ${answer.join('')}`);
   $logs.appendChild(message);
+  $count.textContent = '0';
 }
 
 let outCount = 0;
@@ -67,9 +72,9 @@ $form.addEventListener('submit', (event) => {
   // 0S 0B -> OUT
   if (strike === 0 && ball === 0) {
     outCount++;
-    $logs.append(`${tries.length + 1} - ${value}: ${outCount}OUT!`, document.createElement('br'));
+    $logs.append(`${value}: ${outCount}OUT!`, document.createElement('br'));
   } else {
-    $logs.append(`${tries.length + 1} - ${value}: ${strike}S ${ball}B`, document.createElement('br'));
+    $logs.append(`${value}: ${strike}S ${ball}B`, document.createElement('br'));
   }
   // 3OUT -> Fail
   if (outCount === 3) {
@@ -77,4 +82,5 @@ $form.addEventListener('submit', (event) => {
     return;
   }
   tries.push(value);
+  $count.textContent = 10 - tries.length;
 });

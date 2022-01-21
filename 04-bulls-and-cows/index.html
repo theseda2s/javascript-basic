@@ -11,16 +11,20 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>bulls and cows</h1>
-    <p>
-      You have 10 chances. <br />
-      You fail when you get 3 outs.
-    </p>
-    <form id="form" action="POST">
-      <input type="text" id="input" />
-      <button type="submit">Check</button>
-    </form>
-    <div id="logs"></div>
+    <section class="container">
+      <div class="game-card">
+        <h1 class="game-title">bulls and cows</h1>
+        <p class="game-desc">
+          You have <span id="count">10</span> chances. <br />
+          You fail when you get 3 outs.
+        </p>
+      </div>
+      <form id="form" action="POST" class="game-form">
+        <input type="number" id="input" class="form-input" />
+        <button type="submit" class="form-button">Check</button>
+      </form>
+      <div id="logs" class="game-logs"></div>
+    </section>
     <script src="./self-check.js"></script>
   </body>
 </html>
