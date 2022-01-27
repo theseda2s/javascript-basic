@@ -1,0 +1,13 @@
+<!-- 버튼을 클릭할 때 'hello, event bubbling'을 alert 하게 다음 코드를 수정. 단, 이벤트 리스너를 button 태그에 달아서는 안 됨. -->
+
+<header>
+  <div>
+    <button>클릭</button>
+  </div>
+</header>
+<script>
+  const $header = document.querySelector('header');
+  $header.addEventListener('click', () => {
+    alert('hello, event bubbling');
+  });
+</script>
